@@ -21,3 +21,20 @@
     color: #c5c8d6;
     cursor: pointer;
 }
+
+.button-goto-projects {
+    background-color: #4915d8;
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 18px;
+    border: none;
+}
+
+.button-goto-projects:hover {
+    background-color: #4915d8cc;
+    color: var(--text);
+    cursor: pointer;
+}
