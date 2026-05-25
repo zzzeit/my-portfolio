@@ -17,6 +17,21 @@
     text-decoration: underline;
 }
 
+
+.selected {
+    color: var(--text-h);
+    font-weight: 500;
+    background-color: #4915d8;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(73, 21, 216, 0.589);
+}
+
+.unselected {
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
 .my-button:hover {
     color: #c5c8d6;
     cursor: pointer;
