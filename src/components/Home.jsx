@@ -22,7 +22,7 @@ function Home() {
                     
                 </div>
                 <div className="home-image">
-                    <img src={ProfileIMG} alt="Neil's Profile" />
+                    <img src={ProfileIMG} alt="Neil's Profile" className="profile-image" />
                 </div>
             </div>
         </Section>
