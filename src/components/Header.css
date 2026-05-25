@@ -1,0 +1,15 @@
+.my-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
