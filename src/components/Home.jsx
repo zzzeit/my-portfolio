@@ -3,6 +3,9 @@ import Section from './Section'
 import ProfileIMG from '../assets/profile.jpg'
 import Button from './Button'
 
+function scrollToProjects() {
+    document.getElementById('projects')?.scrollIntoView()
+}
 
 function Home() {
     return (
@@ -13,7 +16,7 @@ function Home() {
                     <h2>Aspiring Software Developer</h2>
                     <p>I'm a software developer specializing in building exceptional digital experiences. Currently, I'm focused on building responsive web applications.</p>
                     <div className="home-buttons">
-                        <Button text="View My Projects" />
+                        <Button text="View My Projects" onClick={scrollToProjects} />
                         <Button text="Lets Connect" style={{ backgroundColor: '#252525' }} />
                     </div>
                     
