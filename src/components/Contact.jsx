@@ -1,6 +1,6 @@
 import './Contact.css'
 import Section from './Section'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Notification from './Notification'
 
 function Contact() {
@@ -8,17 +8,42 @@ function Contact() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [notificationMessage, setNotificationMessage] = useState('')
+
+    useEffect(() => {
+        if (!notificationMessage) {
+            return
+        }
+
+        const timeoutId = setTimeout(() => {
+            setNotificationMessage('')
+        }, 5000)
+
+        return () => clearTimeout(timeoutId)
+    }, [notificationMessage])
+
+    const handleCloseNotification = () => {
+        setNotificationMessage('')
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!name || !email || !message) {
-            alert('Please fill in all fields before submitting.')
+            setNotificationMessage('Please fill in all fields before submitting.')
             return
         }
+
+        setNotificationMessage('Thanks for your message. I will get back to you soon.')
+        setName('')
+        setEmail('')
+        setMessage('')
     }
 
     return (
         <Section id="contact">
+            {notificationMessage ? (
+                <Notification message={notificationMessage} onClose={handleCloseNotification} />
+            ) : null}
             <div className="my-contact">
                 <h1>Get in Touch</h1>
                 <div className="decorator-divider"/>
