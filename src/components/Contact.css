@@ -43,3 +43,18 @@
     flex-direction: column;
     gap: 4px;
 }
+
+.button-submit {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-submit:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}

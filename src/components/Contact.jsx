@@ -36,7 +36,7 @@ function Contact() {
                         <label htmlFor="message">Message</label>
                         <textarea id="message" name="message" placeholder="Write something..." style={{ height: '200px' }} value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                     </div>
-                    <input type="submit" value="Submit" />
+                    <input className="button-submit" type="submit" value="Submit" />
                 </form>
             </div>
         </Section>
