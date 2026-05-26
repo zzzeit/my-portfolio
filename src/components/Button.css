@@ -30,6 +30,7 @@
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 7px;
+    background-color: #242424;
 }
 
 .my-button:hover {

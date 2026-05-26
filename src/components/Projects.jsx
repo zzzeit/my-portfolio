@@ -28,8 +28,8 @@ function projectCard(image, title, description, tags, link) {
                 </div>
 
                 <div className="button-container">
-                    <Button text="Source Code" style={{ backgroundColor: '#252525', height: '30px', fontSize: '14px' }} link={link} />
-                    <Button text="View Project" style={{ height: '30px', fontSize: '14px' }} link={link} />
+                    <Button text="Source Code" style={{ backgroundColor: '#252525', height: '40px', fontSize: '14px' }} link={link} />
+                    <Button text="View Project" style={{ height: '40px', fontSize: '14px' }} link={link} />
                 </div>
                 
             </div>
@@ -60,7 +60,7 @@ function Projects() {
             title: 'Web SSIS',
             description:
                 "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface",
-            tags: ["Python", "PostgreSQL", "Supabase", "HTML/CSS", "React.js", "Next.js"],
+            tags: ["PostgreSQL", "Supabase", "React.js", "Next.js", "LottieFiles"],
             link: 'https://example.com/project2',
             category: 'Web',
         },
@@ -83,7 +83,7 @@ function Projects() {
             <div className="my-projects">
                 <h1>Featured Projects</h1>
                 <div className="decorator-divider"/>
-                <h3 style={{ marginTop: '0' }}>Take a look at some representative applications I built to polish my skills.</h3>
+                <h3 style={{ margin: '0' }}>Take a look at some representative applications I built to polish my skills.</h3>
                 <div className="container-filter">
                     <Button text="All" activeNumber={[activeFilter, 1]} onClick={() => {
                         setActiveFilter(1)

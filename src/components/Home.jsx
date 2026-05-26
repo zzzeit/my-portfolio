@@ -4,7 +4,7 @@ import ProfileIMG from '../assets/profile.jpg'
 import Button from './Button'
 
 function scrollToProjects() {
-    document.getElementById('projects')?.scrollIntoView()
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
 }
 
 function Home() {
