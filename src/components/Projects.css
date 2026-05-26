@@ -6,7 +6,7 @@
     align-items: center;
     height: calc(100svh - 73px);
     /* gap: 140px; */
-    background-color: #17181f2a;
+    background-color: #13141a2a;
     /* background-color:  #ffffff; */
     backdrop-filter: blur(140px);
 }
@@ -62,15 +62,6 @@
 
 .card-text h3 {
     margin: 0;
-}
-
-.decorator-divider {
-    width: 80px;
-    height: 6px;
-    background-color: #808dff;
-    border-radius: 6px;
-    margin-top: 5px;
-    margin-bottom: 25px;
 }
 
 .button-container {

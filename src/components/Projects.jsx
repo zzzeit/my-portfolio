@@ -81,8 +81,8 @@ function Projects() {
     return (
         <Section id="projects">
             <div className="my-projects">
-                <h1>Featured Projects </h1>
-                <div className="decorator-divider"></div>
+                <h1>Featured Projects</h1>
+                <div className="decorator-divider"/>
                 <h3 style={{ marginTop: '0' }}>Take a look at some representative applications I built to polish my skills.</h3>
                 <div className="container-filter">
                     <Button text="All" activeNumber={[activeFilter, 1]} onClick={() => {
