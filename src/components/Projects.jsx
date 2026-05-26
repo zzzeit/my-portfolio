@@ -81,7 +81,7 @@ function Projects() {
     return (
         <Section id="projects">
             <div className="my-projects">
-                <h1>Featured Projects</h1>
+                <h1 id="projectsTitle">Featured Projects</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built to polish my skills.</h3>
                 <div className="container-filter">

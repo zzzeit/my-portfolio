@@ -17,7 +17,7 @@ function Home() {
         <Section>
             <div className="my-home">
                 <div className="home-details">
-                    <h1>Hi, I'm <span className="gradient-text">Neil Anthony</span></h1>
+                    <h1 id="homeTitle">Hi, I'm <span className="gradient-text">Neil Anthony</span></h1>
                     <h2>Aspiring Software Developer</h2>
                     <p>I'm a software developer specializing in building exceptional digital experiences. Currently, I'm focused on building responsive web applications.</p>
                     <div className="home-buttons">
