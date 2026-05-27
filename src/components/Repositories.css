@@ -11,8 +11,8 @@
     height: 100%;
     /* border: 1px dashed #474747; */
     padding: 16px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
     /* background: linear-gradient(135deg, #725454, #262374); */
     backdrop-filter: blur(140px);
 
@@ -27,8 +27,8 @@
     border: 1px dashed #474747;
     /* border-radius: 8px; */
 
-    max-width: 750px;
-    max-height: 500px;
+    max-width: 680px;
+    max-height: 580px;
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 20px;
