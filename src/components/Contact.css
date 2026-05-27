@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100svh - 73px);
+    /* height: calc(100svh - 73px); */
     backdrop-filter: blur(140px);
     width: 100%;
 }

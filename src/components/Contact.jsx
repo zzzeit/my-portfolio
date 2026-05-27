@@ -44,7 +44,7 @@ function Contact() {
             {notificationMessage ? (
                 <Notification message={notificationMessage} onClose={handleCloseNotification} />
             ) : null}
-            <div className="my-contact">
+            <div className="my-contact h-[780px] lg:h-[calc(100svh-73px)] pl-5 pr-5">
                 <h1 id="contactTitle">Get in Touch</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ marginTop: '0', marginBottom: '40px' }}>Have a question or want to interview me? Drop me a line!</h3>
