@@ -17,7 +17,7 @@ function Button({ text, activeNumber, onClick , style, type}) {
     }
 
     return (
-        <button className={`my-button ${activeNumber[0] === activeNumber[1] ? 'active' : ''}`} onClick={onClick}>
+        <button className={`my-button ${activeNumber[0] === activeNumber[1] ? 'active' : ''} text-[10px] lg:text-[15px] `} onClick={onClick}>
             {text}
         </button>
     )
