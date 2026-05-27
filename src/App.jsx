@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Home from './components/Home'
 import Projects from './components/Projects'
+import Repositories from './components/Repositories'
 import Contact from './components/Contact'
 import WhiteCircle from './assets/white-circle.png'
 
@@ -15,6 +16,7 @@ function App() {
 			<img src={WhiteCircle} alt="White Circle" className="white-circle" />
 			<Home />
 			<Projects />
+			<Repositories />
 			<Contact />
 		</>
 	)
