@@ -44,7 +44,7 @@ function Repositories() {
                 <div className="bordered-container">
                     <h1 id="repositoriesTitle">My Repositories</h1>
                     <div className="decorator-divider" />
-                    <h3 className="mb-7">These are the repositories for both real/mock projects I've created or contributed to:</h3>
+                    <h3 className="mb-7">These are the repositories for both real/mock projects I've created:</h3>
                     <div className="grid-card flex flex-wrap lg:flex-row-2 gap-x-7 gap-y-6">
                         {fetchedRepos.map((repo) => (
                             <RepositoryCard key={repo.id} repo={repo} />

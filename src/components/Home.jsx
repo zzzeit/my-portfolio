@@ -19,7 +19,7 @@ function Home() {
                 <div className="home-details gap-1 lg:gap-4">
                     <h1 className="text-center lg:text-left leading-10 lg:leading-1.2" id="homeTitle">Hi, I'm <span className="gradient-text">Neil Anthony</span></h1>
                     <h2 className="text-center lg:text-left mb-4">Aspiring Software Developer</h2>
-                    <p className="max-w-[500px] lg:max-w-[600px]">I'm a software developer specializing in building exceptional digital experiences. Currently, I'm focused on building responsive web applications.</p>
+                    <p className="max-w-[500px] lg:max-w-[600px]">I specialize in building exceptional digital experiences. Currently, I focus on back-end development and engineering responsive, scalable web applications.</p>
                     <div className="home-buttons justify-center lg:justify-start max-[405px]:flex-col">
                         <Button text="View My Projects" onClick={scrollToProjects} />
                         <Button text="Lets Connect" style={{ backgroundColor: '#252525' }} onClick={scrollToContact} />
