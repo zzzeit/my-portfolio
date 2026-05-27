@@ -15,7 +15,7 @@ function Home() {
 
     return (
         <Section>
-            <div className="my-home min-h-[750px] h-[calc(100svh-73px)] lg:h-[calc(100vh-73px)] lg:height-auto pl-5 pr-5 lg:pl-20 lg:pr-20 gap-10 lg:gap-35 flex-col-reverse lg:flex-row">
+            <div className="my-home min-h-[750px] h-[calc(100svh-73px)] lg:h-[calc(100vh-73px)] lg:height-auto pl-5 pr-5 lg:pl-20 lg:pr-20 gap-10 lg:gap-35 flex-col-reverse lg:flex-row mt-[70px]">
                 <div className="home-details gap-1 lg:gap-4">
                     <h1 className="leading-10 lg:leading-1.2" id="homeTitle">Hi, I'm <span className="gradient-text">Neil Anthony</span></h1>
                     <h2 className="mb-4">Aspiring Software Developer</h2>

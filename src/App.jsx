@@ -14,8 +14,8 @@ function App() {
 		<>	
 			<img src={WhiteCircle} alt="White Circle" className="white-circle" />
 			<Home />
-			{/* <Projects />
-			<Contact /> */}
+			<Projects />
+			{/* <Contact /> */}
 		</>
 	)
 }
