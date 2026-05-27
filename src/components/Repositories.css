@@ -25,9 +25,9 @@
 
 .grid-card {
     border: 1px dashed #474747;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 
-    max-width: 1000px;
+    max-width: 750px;
     max-height: 500px;
     overflow-y: scroll;
     scrollbar-width: none;
