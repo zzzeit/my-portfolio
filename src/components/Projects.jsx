@@ -80,7 +80,7 @@ function Projects() {
 
     return (
         <Section id="projects">
-            <div className="my-projects h-[900px] lg:h-[calc(100svh - 73px)] pl-5 pr-5">
+            <div className="my-projects h-[900px] lg:h-[calc(100svh - 73px)] pl-5 pr-5 lg:pl-20 lg:pr-20">
                 <h1 id="projectsTitle">Featured Projects</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built to polish my skills.</h3>
