@@ -1,7 +1,6 @@
 .my-repositories {
     display: flex;
     flex-direction: column;
-    /* background: var(--bg); */
     backdrop-filter: blur(140px);
     width: 100%;
     z-index: 1;
@@ -9,11 +8,7 @@
 
 .bordered-container {
     height: 100%;
-    /* border: 1px dashed #474747; */
     padding: 16px;
-    /* margin-top: 50px;
-    margin-bottom: 50px; */
-    /* background: linear-gradient(135deg, #725454, #262374); */
     backdrop-filter: blur(140px);
 
     display: flex;
@@ -25,7 +20,6 @@
 
 .grid-card {
     border: 1px dashed #474747;
-    /* border-radius: 8px; */
 
     max-width: 680px;
     max-height: 580px;
@@ -40,8 +34,6 @@
     max-width: 300px;
     display: flex;
     flex-direction: column;
-    /* justify-content: left;
-    align-items: center; */
     font-size: 18px;
     color: #ffffff;
     background: #2C2C2C;

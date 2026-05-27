@@ -4,10 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: calc(100svh - 73px); */
-    /* gap: 140px; */
     background-color: #13141a2a;
-    /* background-color:  #ffffff; */
     backdrop-filter: blur(140px);
 }
 
@@ -18,25 +15,19 @@
 .cards-section {
     align-items: stretch;
     justify-content: flex-start;
-    /* align-items: center; */
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    /* scrollbar-width: none; */
     width: 100%;
 }
 
 .project-card {
-    /* min-width: 400px; */
     max-width: 360px;
-    /* height: 100%; */
-    /* max-height: 700px; */
     background-color: #2c2c2c;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     font-size: 18px;
     color: #333;
@@ -57,7 +48,6 @@
     flex-direction: column;
     flex: 1;
     box-sizing: border-box;
-    /* margin: 16px; */
     padding: 16px;
     margin: 0;
     text-align: justify;
@@ -65,10 +55,8 @@
 }
 
 .card-text p {
-    /* text-overflow: ellipsis; */
     max-height: 100px;
     overflow: hidden;
-    /* overflow-x: hidden; */
     overflow-y: scroll;
     scrollbar-width: none;
     margin-bottom: 20px;

@@ -2,8 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: calc(100svh - 73px); */
-    /* gap: 140px; */
     backdrop-filter: blur(140px);
 }
 
@@ -11,24 +9,17 @@
 
 .home-details {
     max-width: 600px;
-    /* gap: 24px; */
     display: flex;
     flex-direction: column;
-    /* border: 1px solid #ccc; */
 }
 
 .home-details h1 {
-    /* text-align: left; */
-    /* font-size: 67px; */
     font-weight: 900;
     margin: 0;
 }
 
 .home-details h2 {
-    /* text-align: left; */
-    /* font-size: 24px; */
     color: var(--text-h);
-    /* margin: 0; */
 }
 .gradient-text {
     background: linear-gradient(90deg, #ff2828, #9e27ff);
@@ -59,7 +50,6 @@
     height: auto;
     max-width: 100%;
 
-    /* circle image */
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
