@@ -1,6 +1,6 @@
 import './Home.css'
 import Section from './Section'
-import ProfileIMG from '../assets/profile.jpg'
+import ProfileIMG from '../assets/profile.png'
 import Button from './Button'
 
 function Home() {
