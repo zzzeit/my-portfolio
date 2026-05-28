@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import Repositories from './components/Repositories'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 import WhiteCircle from './assets/white-circle.png'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 			<Projects />
 			<Repositories />
 			<Contact />
+			<Footer />
 		</>
 	)
 }
