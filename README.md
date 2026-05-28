@@ -1,16 +1,44 @@
-# React + Vite
+# 🚀 Personal Portfolio Website | Web Development Intern Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional, premium, and mobile-responsive Personal Portfolio website built for the **Mata Technologies Inc. Skills Showcase Challenge (IT & Operations / IT & Programming)**. 
 
-Currently, two official plugins are available:
+This project showcases clean frontend architecture, interactive state management, and real-time third-party API integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🔗 Live Production Deployment
+* **Live Website Link:** `https://zzzeit.github.io/my-portfolio/` 
+* **GitHub Repository:** `https://github.com/zzzeit/my-portfolio.git`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **React.js** (Functional components & state hooks)
+* **Tailwind CSS** (Utility-first styling system)
+* **JavaScript** (Asynchronous data handling)
+* **GitHub REST API** (Dynamic repository content)
+
+---
+
+## 📦 Local Installation & Setup Instructions
+
+To download, inspect, and run this codebase locally on your machine, follow these steps:
+
+### Prerequisites
+Ensure you have **Node.js** (v16 or higher recommended) and **npm** installed.
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/zzzeit/my-portfolio.git
+cd your-repo-name
+```
+### Step 2: Install Dependencies
+```bash
+npm install
+```
+
+### Step 3: Launch the local development workspace
+```bash
+npm run dev -- --host
+```
