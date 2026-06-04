@@ -9,6 +9,7 @@ function Contact() {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
     const [notificationMessage, setNotificationMessage] = useState('')
+    const [isSending, setIsSending] = useState(false)
 
     useEffect(() => {
         if (!notificationMessage) {
@@ -26,17 +27,44 @@ function Contact() {
         setNotificationMessage('')
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!name || !email || !message) {
-            setNotificationMessage('Please fill in all fields before submitting.')
+    const handleSubmit = async (e) => {
+        if (isSending) {
             return
         }
+        e.preventDefault()
+        setIsSending(true)
+        if (!name || !email || !message) {
+            setNotificationMessage('Please fill in all fields before submitting.')
+            setIsSending(false)
+            return
+        }
+        
+        const formData = new FormData(e.target)
+        formData.append('access_key', '663e926d-53d5-44ad-a3d0-635b0d1e27fe')
 
-        setNotificationMessage('Thanks for your message. I will get back to you soon.')
-        setName('')
-        setEmail('')
-        setMessage('')
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setNotificationMessage('Thanks for your message. I will get back to you soon.')
+                setName('')
+                setEmail('')
+                setMessage('')
+                e.target.reset();
+            } else {
+                setNotificationMessage('Error: ' + data.message);
+            }
+
+        } catch (error) {
+            setNotificationMessage('Something went wrong. Please try again.');
+        } finally {
+            setIsSending(false);
+        }
     }
 
     return (
@@ -61,7 +89,7 @@ function Contact() {
                         <label htmlFor="message">Message</label>
                         <textarea id="message" name="message" placeholder="Write something..." style={{ height: '200px' }} value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                     </div>
-                    <input className="button-submit" type="submit" value="Submit" />
+                    <input className={isSending ? "button-submitting" : "button-submit"} type="submit" value={isSending ? "Sending..." : "Submit"} disabled={isSending} />
                 </form>
             </div>
         </Section>
