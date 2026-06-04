@@ -62,6 +62,7 @@ function Contact() {
 
         } catch (error) {
             setNotificationMessage('Something went wrong. Please try again.');
+            setIsSending(false);
         } finally {
             setIsSending(false);
         }
