@@ -1,6 +1,6 @@
 # 🚀 Personal Portfolio Website
 
-A fully functional, premium, and mobile-responsive Personal Portfolio website built for the **Mata Technologies Inc. Skills Showcase Challenge**. 
+A fully functional, premium, and mobile-responsive Personal Portfolio website.
 
 This project showcases clean frontend architecture, interactive state management, and real-time third-party API integration.
 
