@@ -72,7 +72,7 @@ function ProjectDefinitions({title, text, tech}) {
                 </div>
             }
             { activeText >= 2 && 
-                <div style={{width:'90%', border: '1px solid #3a3a3a'}} />
+                <div style={{width:'90%', height: '0px', border: '1px solid var(--ui-border)'}} />
             }
             { activeText >= 2 && 
                 <div className={activeText > 2 ? 'hide-cursor' : ''}>
