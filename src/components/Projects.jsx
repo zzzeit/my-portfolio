@@ -4,44 +4,105 @@ import Button from './Button'
 import Hootline from '../assets/hootline.png'
 import Webssis from '../assets/webssis.png'
 import Cybersentience from '../assets/cybersentience.png'
-import { useState } from 'react'
+import SampleVid from '../assets/sample-vid2.mp4'
+import Typewriter from 'typewriter-effect'
+import { useState, useEffect } from 'react'
 
-function projectTag(text) {
+// Swiper imports
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// function projectTag(text) {
+//     return (
+//         <div className="project-tag">
+//             <p>
+//                 {text}
+//             </p>
+//         </div>
+//     )
+// }
+
+function ProjectDefinitions({title, text, tech}) {
+
+    const [activeText, setActiveText] = useState(0)
+
     return (
-        <div className="project-tag">
-            <p>
-                {text}
-            </p>
-        </div>
-    )
-}
+        <div className="project-definitions">
+            <div className={activeText > 0 ? 'hide-cursor' : ''}>
+                <Typewriter
+                    
+                    onInit={(typewriter) => {
+                        typewriter
+                            .typeString(`<h1>${title}</h1>`)
+                            .pauseFor(0)
+                            .callFunction(() => {
+                                setActiveText(1)
+                            })
+                            .changeDelay(1)
+                            .start()
+                    }}
 
-function projectCard(image, title, description, tags, link) {
-    return (
-        <div className="project-card min-w-[350px] lg:w-[400px]">
-            <img src={image} alt={title} />
-            <div className="card-text">
-                <h3 style={{ marginBottom: '10px' }}>{title}</h3>
-                <p className="description">{description}</p>
-                <div className="tag-container">
-                    {tags.map((tag, index) => projectTag(tag))}
-                </div>
-
-                <div className="button-container">
-                    <Button text="Source Code" style={{ backgroundColor: '#252525', height: '40px', fontSize: '14px', width: '100%' }} link={link} onClick={() => window.open(link, '_blank')} />
-                    {/* <Button text="View Project" style={{ height: '40px', fontSize: '14px' }} /> */}
-                </div>
-                
+                    options={{
+                        delay: 40,
+                        cursor: '|',
+                    }}
+                />
             </div>
+            { activeText >= 1 && 
+                <div className={activeText > 1 ? 'hide-cursor' : ''}>
+                    <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter
+                                .typeString(text)
+                                .pauseFor(0)
+                                .callFunction(() => {
+                                    setActiveText(2)
+                                })
+                                .changeDelay(1)
+                                .start()
+                        }}
 
+                        options={{
+                            delay: 1,
+                            cursor: '|',
+                        }}
+                    />
+                </div>
+            }
+            { activeText >= 2 && 
+                <div style={{width:'90%', border: '1px solid #3a3a3a'}} />
+            }
+            { activeText >= 2 && 
+                <div className={activeText > 2 ? 'hide-cursor' : ''}>
+                    <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter
+                                .typeString(tech)
+                                .pauseFor(3000)
+                                .callFunction(() => {
+                                    setActiveText(3)
+                                })
+                                .changeDelay(1)
+                                .start()
+                        }}
+
+                        options={{
+                            delay: 1,
+                            cursor: '|',
+                        }}
+                    />
+                </div>
+            }
         </div>
     )
 }
 
 function Projects() {
 
-    const [activeFilter, setActiveFilter] = useState(1)
-    const [filter, setFilter] = useState("All")
+    const [currentSlide, setCurrentSlide] = useState(0)
+ 
 
     const projects = [
         {
@@ -50,7 +111,7 @@ function Projects() {
             title: 'The Hootline',
             description:
                 "This is a dual-interface enrollment and scheduling web platform exclusive to MSU-IIT developed using React, Flask, and PostgreSQL. It features full CRUDL workflows, real-time messaging, interactive calendars for session scheduling, and student verification logic.",
-            tags: ["React", "Flask", "SQLAlchemy", "PostgreSQL", "Bitbucket", "Jira"],
+            tags: "Technologies: React, Flask, SQLAlchemy, PostgreSQL, Bitbucket, Jira",
             link: 'https://github.com/Operator-Syn/peer-tutoring-platform.git',
             category: 'Web',
         },
@@ -60,7 +121,7 @@ function Projects() {
             title: 'Simple Student Information System',
             description:
                 "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface.",
-            tags: ["PostgreSQL", "Supabase", "React.js", "Next.js", "LottieFiles", "Vercel"],
+            tags: "Technologies: PostgreSQL, Supabase, React.js, Next.js",
             link: 'https://github.com/zzzeit/SSIS-Web.git',
             category: 'Web',
         },
@@ -70,13 +131,12 @@ function Projects() {
             title: 'Cybersentience',
             description:
                 "This retro-styled survival-horror capstone project was built using Python and Pygame. It integrates resource management mechanics and stamina systems within an atmospheric, pseudo-3D environment powered by a custom 2D raycasting engine.",
-            tags: ["Python", "Pygame"],
+            tags: "Technologies: Python, Pygame",
             link: 'https://github.com/zzzeit/Capstone-Game-Project.git',
             category: 'Game',
         },
     ]
 
-    const visibleProjects = projects.filter(p => filter === 'All' || p.category === filter)
 
     return (
         <Section id="projects">
@@ -84,29 +144,22 @@ function Projects() {
                 <h1 id="projectsTitle">Featured Projects</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built or contributed to in order to polish my skills.</h3>
-                <div className="container-filter">
-                    <Button text="All" activeNumber={[activeFilter, 1]} onClick={() => {
-                        setActiveFilter(1)
-                        setFilter("All")
-                    }} type={3} />
-                    <Button text="Web" activeNumber={[activeFilter, 2]} onClick={() => {
-                        setActiveFilter(2)
-                        setFilter("Web")
-                    }} type={3} />
-                    <Button text="Game" activeNumber={[activeFilter, 3]} onClick={() => {
-                        setActiveFilter(3)
-                        setFilter("Game")
-                    }} type={3} />
+
+                <div className="flex flex-row gap-5 p-10">
+                    <ProjectDefinitions key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} />
+                    <Swiper
+                        className="my-swiper"
+                        modules={[Autoplay, Pagination]}
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 12000, disableOnInteraction: false }}
+                        onSlideChange={(e) => setCurrentSlide(e.activeIndex)}>
+                        <SwiperSlide><img src={Hootline} width="100%" height="100%" /></SwiperSlide>
+                        <SwiperSlide><img src={Cybersentience} width="100%" height="100%" /></SwiperSlide>
+                        <SwiperSlide><video src={SampleVid} autoPlay muted loop playsInline className="w-full h-full object-cover" /></SwiperSlide>
+                    </Swiper>
                 </div>
-                <div className="max-w-[100%]">
-                    <div className="cards-section">
-                        {visibleProjects.map(p => (
-                            projectCard(p.image, p.title, p.description, p.tags, p.link)
-                        ))}
-                    </div>
-                </div>
-                
-                
             </div>
         </Section>
     )
