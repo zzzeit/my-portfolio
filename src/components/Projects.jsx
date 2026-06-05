@@ -24,7 +24,7 @@ import 'swiper/css/pagination';
 //     )
 // }
 
-function ProjectDefinitions({title, text, tech}) {
+function ProjectDefinitions({title, text, tech, link}) {
 
     const [activeText, setActiveText] = useState(0)
 
@@ -50,51 +50,57 @@ function ProjectDefinitions({title, text, tech}) {
                     }}
                 />
             </div>
-            { activeText >= 1 && 
-                <div className={activeText > 1 ? 'hide-cursor' : ''}>
-                    <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter
-                                .typeString(text)
-                                .pauseFor(0)
-                                .callFunction(() => {
-                                    setActiveText(2)
-                                })
-                                .changeDelay(1)
-                                .start()
-                        }}
+            <div className="flex flex-col gap-[16px] max-h-[100%] overflow-y-auto [scrollbar-width:none]">
+                { activeText >= 1 && 
+                    <div className={activeText > 1 ? 'hide-cursor' : ''}>
+                        <Typewriter
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString(text)
+                                    .pauseFor(0)
+                                    .callFunction(() => {
+                                        setActiveText(2)
+                                    })
+                                    .changeDelay(1)
+                                    .start()
+                            }}
 
-                        options={{
-                            delay: 1,
-                            cursor: '|',
-                        }}
-                    />
-                </div>
-            }
-            { activeText >= 2 && 
-                <div style={{width:'90%', height: '0px', border: '1px solid var(--ui-border)'}} />
-            }
-            { activeText >= 2 && 
-                <div className={activeText > 2 ? 'hide-cursor' : ''}>
-                    <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter
-                                .typeString(tech)
-                                .pauseFor(3000)
-                                .callFunction(() => {
-                                    setActiveText(3)
-                                })
-                                .changeDelay(1)
-                                .start()
-                        }}
+                            options={{
+                                delay: 1,
+                                cursor: '|',
+                            }}
+                        />
+                    </div>
+                }
+                { activeText >= 2 && 
+                    <div style={{width:'100%', height: '0px', border: '1px solid var(--ui-border)'}} />
+                }
+                { activeText >= 2 && 
+                    <div className={activeText > 2 ? 'hide-cursor' : ''}>
+                        <Typewriter
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString(tech)
+                                    .pauseFor(3000)
+                                    .callFunction(() => {
+                                        setActiveText(3)
+                                    })
+                                    .changeDelay(1)
+                                    .start()
+                            }}
 
-                        options={{
-                            delay: 1,
-                            cursor: '|',
-                        }}
-                    />
-                </div>
-            }
+                            options={{
+                                delay: 1,
+                                cursor: '|',
+                            }}
+                        />
+                    </div>
+                }
+            </div>   
+            <div className="mt-auto" >
+                <Button text="Source Code" style={{ backgroundColor: '#252525', height: '40px', fontSize: '14px', width: '100%' }} link={link} onClick={() => window.open(link, '_blank')} />
+            </div>
+            
         </div>
     )
 }
@@ -120,7 +126,7 @@ function Projects() {
             image: Webssis,
             title: 'Simple Student Information System',
             description:
-                "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface.",
+                "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface. This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface.",
             tags: "Technologies: PostgreSQL, Supabase, React.js, Next.js",
             link: 'https://github.com/zzzeit/SSIS-Web.git',
             category: 'Web',
@@ -145,15 +151,15 @@ function Projects() {
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built or contributed to in order to polish my skills.</h3>
 
-                <div className="flex flex-row gap-5 p-10">
-                    <ProjectDefinitions key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} />
+                <div className="flex flex-row gap-5 pt-10">
+                    <ProjectDefinitions key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} link={projects[currentSlide].link} />
                     <Swiper
                         className="my-swiper"
                         modules={[Autoplay, Pagination]}
                         spaceBetween={50}
                         slidesPerView={1}
                         pagination={{ clickable: true }}
-                        autoplay={{ delay: 12000, disableOnInteraction: false }}
+                        autoplay={{ delay: 15000, disableOnInteraction: false }}
                         onSlideChange={(e) => setCurrentSlide(e.activeIndex)}>
                         <SwiperSlide><img src={Hootline} width="100%" height="100%" /></SwiperSlide>
                         <SwiperSlide><img src={Cybersentience} width="100%" height="100%" /></SwiperSlide>
