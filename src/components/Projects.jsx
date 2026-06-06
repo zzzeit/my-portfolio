@@ -24,13 +24,13 @@ import 'swiper/css/pagination';
 //     )
 // }
 
-function ProjectDefinitions({title, text, tech, link}) {
+function ProjectDefinitions({ className, title, text, tech, link}) {
 
     const [activeText, setActiveText] = useState(0)
 
     return (
-        <div className="project-definitions">
-            <div className={activeText > 0 ? 'hide-cursor' : ''}>
+        <div className={`${className}`}>
+            <div className={`${activeText > 0 ? 'hide-cursor' : ''} max-[1200px]:max-w-[600px] min-[1200px]:max-w-[400px]`}>
                 <Typewriter
                     
                     onInit={(typewriter) => {
@@ -52,7 +52,7 @@ function ProjectDefinitions({title, text, tech, link}) {
             </div>
             <div className="flex flex-col gap-[16px] max-h-[100%] overflow-y-auto [scrollbar-width:none]">
                 { activeText >= 1 && 
-                    <div className={activeText > 1 ? 'hide-cursor' : ''}>
+                    <div className={`${activeText > 1 ? 'hide-cursor' : ''} max-[1200px]:max-w-[600px] min-[1200px]:max-w-[400px]`}>
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
@@ -76,7 +76,7 @@ function ProjectDefinitions({title, text, tech, link}) {
                     <div style={{width:'100%', height: '0px', border: '1px solid var(--ui-border)'}} />
                 }
                 { activeText >= 2 && 
-                    <div className={activeText > 2 ? 'hide-cursor' : ''}>
+                    <div className={`${activeText > 2 ? 'hide-cursor' : ''} max-[1200px]:max-w-[600px] min-[1200px]:max-w-[400px]`}>
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
@@ -97,7 +97,7 @@ function ProjectDefinitions({title, text, tech, link}) {
                     </div>
                 }
             </div>   
-            <div className="mt-auto" >
+            <div className="mt-auto w-full w-max-[600px]" >
                 <Button text="Source Code" style={{ backgroundColor: '#252525', height: '40px', fontSize: '14px', width: '100%' }} link={link} onClick={() => window.open(link, '_blank')} />
             </div>
             
@@ -126,7 +126,7 @@ function Projects() {
             image: Webssis,
             title: 'Simple Student Information System',
             description:
-                "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface. This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface.",
+                "This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface. This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface. This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface. This full-stack management application utilizes Next.js and Supabase to establish secure JWT authentication and comprehensive data workflows. It includes a protected profile media storage pipeline with file validation alongside a responsive server-side frontend interface.",
             tags: "Technologies: PostgreSQL, Supabase, React.js, Next.js",
             link: 'https://github.com/zzzeit/SSIS-Web.git',
             category: 'Web',
@@ -134,7 +134,7 @@ function Projects() {
         {
             id: 'cybersentience',
             image: Cybersentience,
-            title: 'Cybersentience',
+            title: 'CyberSentience',
             description:
                 "This retro-styled survival-horror capstone project was built using Python and Pygame. It integrates resource management mechanics and stamina systems within an atmospheric, pseudo-3D environment powered by a custom 2D raycasting engine.",
             tags: "Technologies: Python, Pygame",
@@ -146,25 +146,30 @@ function Projects() {
 
     return (
         <Section id="projects">
-            <div className="my-projects h-[900px] lg:h-[calc(100svh - 73px)] pl-5 pr-5 lg:pl-20 lg:pr-20">
+            <div className="my-projects max-h-[1500px] lg:min-h-[calc(100svh - 73px)] pl-5 pr-5 lg:pl-20 lg:pr-20">
                 <h1 id="projectsTitle">Featured Projects</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built or contributed to in order to polish my skills.</h3>
 
-                <div className="flex flex-row gap-5 pt-10">
-                    <ProjectDefinitions key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} link={projects[currentSlide].link} />
+                <div className="flex flex-col flex-col-reverse min-[1200px]:flex-row gap-10 mt-10 max-[1200px]:w-full">
+                    <div className="max-[1200px]:w-full">
+                        <ProjectDefinitions 
+                            className="project-definitions flex flex-col items-center max-[1200px]:h-[398px] max-w-[600px] max-h-[400px] lg:h-full p-[16px] min-[1200px]:max-h-[600px] min-[1200px]:w-[420px] lg:overflow-auto text-justify gap-[16px] mx-auto"
+                            key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} link={projects[currentSlide].link} />
+                    </div>
                     <Swiper
-                        className="my-swiper"
+                        className="my-swiper max-w-[600px] w-full"
                         modules={[Autoplay, Pagination]}
                         spaceBetween={50}
                         slidesPerView={1}
                         pagination={{ clickable: true }}
-                        autoplay={{ delay: 15000, disableOnInteraction: false }}
+                        autoplay={{ delay: 50000, disableOnInteraction: false }}
                         onSlideChange={(e) => setCurrentSlide(e.activeIndex)}>
                         <SwiperSlide><img src={Hootline} width="100%" height="100%" /></SwiperSlide>
                         <SwiperSlide><img src={Cybersentience} width="100%" height="100%" /></SwiperSlide>
                         <SwiperSlide><video src={SampleVid} autoPlay muted loop playsInline className="w-full h-full object-cover" /></SwiperSlide>
                     </Swiper>
+                    {/* <div className="decorator-divider" /> */}
                 </div>
             </div>
         </Section>
