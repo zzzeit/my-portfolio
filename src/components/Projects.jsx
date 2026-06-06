@@ -136,7 +136,7 @@ function Projects() {
 
     return (
         <Section id="projects">
-            <div className="my-projects max-h-[1500px] lg:min-h-[calc(100svh - 73px)] pl-5 pr-5 lg:pl-20 lg:pr-20">
+            <div className="my-projects max-h-[1500px] lg:min-h-[calc(100svh-73px)] pl-5 pr-5 lg:pl-20 lg:pr-20">
                 <h1 id="projectsTitle">Featured Projects</h1>
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built or contributed to in order to polish my skills.</h3>
