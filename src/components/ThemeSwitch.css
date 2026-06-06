@@ -1,0 +1,23 @@
+.theme-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    z-index: 1000;
+    width: 60px;
+}
+
+.theme-switch:hover {
+    cursor: pointer;
+}
+
+.theme-switch > div {
+    transition: filter 0.5s ease-in-out;
+    filter: invert(1);
+}
+
+:root.dark .theme-switch > div {
+    filter: invert(0);
+}

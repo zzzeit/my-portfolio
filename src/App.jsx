@@ -8,6 +8,7 @@ import Projects from './components/Projects'
 import Repositories from './components/Repositories'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ThemeSwitch from './components/ThemeSwitch'
 import WhiteCircle from './assets/white-circle.png'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 			<Repositories />
 			<Contact />
 			<Footer />
+			<ThemeSwitch />
 		</>
 	)
 }
