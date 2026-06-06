@@ -14,126 +14,7 @@
     margin-top: 0;
 }
 
-/* .cards-section {
-    align-items: stretch;
-    justify-content: flex-start;
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    width: 100%;
-} */
-
-.project-card {
-    max-width: 360px;
-    background-color: #2c2c2c;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 18px;
-    color: #333;
-    overflow: hidden;
-}
-
-.project-card img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px 0 0 10px 10px;
-}
-
-.card-text {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    box-sizing: border-box;
-    padding: 16px;
-    margin: 0;
-    text-align: justify;
-    color: #fff;
-}
-
-.card-text p {
-    max-height: 100px;
-    overflow: hidden;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    margin-bottom: 20px;
-}
-
-.description {
-    background-color: #292929;
-    border-radius: 10px;
-    border: 1px solid #3a3a3a;
-}
-
-.card-text h3 {
-    margin: 0;
-}
-
-.button-container {
-    margin-top: auto;
-    display: flex;
-    gap: 16px;
-}
-
-.tag-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    overflow-x: auto;
-    margin-top: 10px;
-    margin-bottom: 24px;
-    
-}
-
-.project-tag {
-    height: 20px;
-    display: inline-block;
-    padding: 0px 4px;
-    background-color: #3a3a3a;
-    color: #fff;
-    border-radius: 7px;
-    font-size: 12px;
-}
-
-.project-tag p {
-    margin: 0;
-    padding: 0;
-    line-height: 20px;
-}
-
-.project-card:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-/* .container-filter {
-    display: flex;
-    gap: 16px;
-    margin: 50px
-} */
-
-/* .scroll-project-definitions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    padding: 16px;    
-
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    gap:16px;
-} */
-
 .project-definitions {
-
     background: var(--ui-bg-gradient);
     border: 1px solid var(--ui-border);
     border-radius: 10px;
@@ -146,7 +27,6 @@
 }
 
 .my-swiper {
-    /* max-height: 400px; */
     margin: 0px;
     padding: 0px;
     aspect-ratio: 1 / 1;

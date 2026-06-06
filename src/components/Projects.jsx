@@ -14,16 +14,6 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// function projectTag(text) {
-//     return (
-//         <div className="project-tag">
-//             <p>
-//                 {text}
-//             </p>
-//         </div>
-//     )
-// }
-
 function ProjectDefinitions({ className, title, text, tech, link}) {
 
     const [activeText, setActiveText] = useState(0)
@@ -52,7 +42,7 @@ function ProjectDefinitions({ className, title, text, tech, link}) {
             </div>
             <div className="flex flex-col gap-[16px] max-h-[100%] overflow-y-auto [scrollbar-width:none]">
                 { activeText >= 1 && 
-                    <div className={`${activeText > 1 ? 'hide-cursor' : ''} max-[1200px]:max-w-[600px] min-[1200px]:max-w-[400px]`}>
+                    <div className={`${activeText > 1 ? 'hide-cursor' : ''} max-[1200px]:max-w-[600px] md:max-w-[600px] min-[1200px]:max-w-[400px]`}>
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter
@@ -97,7 +87,7 @@ function ProjectDefinitions({ className, title, text, tech, link}) {
                     </div>
                 }
             </div>   
-            <div className="mt-auto w-full w-max-[600px]" >
+            <div className="w-full mt-auto w-max-[600px]" >
                 <Button text="Source Code" style={{ backgroundColor: '#252525', height: '40px', fontSize: '14px', width: '100%' }} link={link} onClick={() => window.open(link, '_blank')} />
             </div>
             
@@ -151,14 +141,14 @@ function Projects() {
                 <div className="decorator-divider"/>
                 <h3 style={{ margin: '0' }}>Take a look at some representative applications I built or contributed to in order to polish my skills.</h3>
 
-                <div className="flex flex-col flex-col-reverse min-[1200px]:flex-row gap-10 mt-10 max-[1200px]:w-full">
+                <div className="flex flex-col flex-col-reverse mt-10 gap-10 max-[1200px]:w-full min-[1200px]:flex-row">
                     <div className="max-[1200px]:w-full">
                         <ProjectDefinitions 
-                            className="project-definitions flex flex-col items-center max-[1200px]:h-[398px] max-w-[600px] max-h-[400px] lg:h-full p-[16px] min-[1200px]:max-h-[600px] min-[1200px]:w-[420px] lg:overflow-auto text-justify gap-[16px] mx-auto"
+                            className="project-definitions flex flex-col items-center mx-auto p-[16px] gap-[16px] text-justify max-w-[600px] max-h-[400px] lg:h-full lg:overflow-auto max-[1200px]:h-[398px] min-[1200px]:w-[420px] min-[1200px]:max-h-[600px]"
                             key={projects[currentSlide].id} title={projects[currentSlide].title} text={projects[currentSlide].description} tech={projects[currentSlide].tags} link={projects[currentSlide].link} />
                     </div>
                     <Swiper
-                        className="my-swiper max-w-[600px] w-full"
+                        className="my-swiper w-full max-w-[600px]"
                         modules={[Autoplay, Pagination]}
                         spaceBetween={50}
                         slidesPerView={1}
@@ -169,7 +159,6 @@ function Projects() {
                         <SwiperSlide><img src={Cybersentience} width="100%" height="100%" /></SwiperSlide>
                         <SwiperSlide><video src={SampleVid} autoPlay muted loop playsInline className="w-full h-full object-cover" /></SwiperSlide>
                     </Swiper>
-                    {/* <div className="decorator-divider" /> */}
                 </div>
             </div>
         </Section>
