@@ -44,7 +44,6 @@ function FileTreeList({ path, fetchRepoContents, onFileClick, areChildren }) {
 	};
 	useEffect(() => {
 		loadFiles();
-		// console.log(files);
 	}, [path, fetchRepoContents]);
 
 
@@ -79,14 +78,13 @@ function FileTree() {
 		headers: {
 			'Accept': 'application/vnd.github+json',
 			'X-GitHub-Api-Version': '2022-11-28',
-			'Authorization': `bearer ${token}` // Injected safely on the server side
+			'Authorization': `bearer ${token}`
 		}
     }
 
 	// test
 	const fetchRepoContents = async (path) => {
 		setRetreiving(true);
-		// setError(null);
 		try {
 			const response = await fetch(
 				`https://api.github.com/repos/${repoState.owner}/${repoState.repo}/contents${path ? `/${path}` : ''}`, 
@@ -94,19 +92,12 @@ function FileTree() {
 			);
 			const data = await response.json();
 			return data;
-			// setFiles(data);
-			// console.log(data);
 		} catch (err) {
 			console.error("Error fetching repository contents:", err);
-			// setError(err.message);
 		} finally {
 			setRetreiving(false);
 		}
 	};
-
-	// useEffect(() => {
-	// 	fetchRepoContents();
-	// }, []);
 
 	useEffect(() => {
 		console.log(`File Selected: ${repoState.selectedFile ? repoState.selectedFile.path : 'None'}`);
@@ -115,6 +106,12 @@ function FileTree() {
 
     return (
 		<div className="file-tree-container h-[500px] w-[250px]">
+			{!repoState.repo && (
+				<div className="file-tree-placeholder flex flex-col items-center justify-center h-full gap-3">
+					<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
+					<p className="mt-4 text-center text-xs text-gray-500">No repository selected.</p>
+				</div>
+			)}
 			<FileTreeList path='' fetchRepoContents={fetchRepoContents} onFileClick={(file) => setRepoState(prev => ({ ...prev, selectedFile: file }))} areChildren={false} />
 		</div>
         
