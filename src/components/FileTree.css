@@ -13,12 +13,11 @@
 
 .file-tree-item {
     display: flex;
-    align-items: center;
     gap: 8px;
     padding: 4px 0;
 }
 
-.file-tree-item:hover {
+.file-tree-item-name:hover {
     background-color: var(--ui-border);
     cursor: pointer;
 }
