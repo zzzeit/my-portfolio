@@ -1,7 +1,7 @@
 import Section from "./Section";
 import './Repositories.css'
 import { useEffect, useState } from "react";
-
+import FileTree from "./FileTree";
 
 function RepositoryCard({ repo }) {
 
@@ -45,10 +45,13 @@ function Repositories() {
                     <h1 id="repositoriesTitle">My Repositories</h1>
                     <div className="decorator-divider" />
                     <h3 className="mb-7">These are the repositories for both real/mock projects I've created:</h3>
-                    <div className="grid-card flex flex-wrap lg:flex-row-2 gap-x-7 gap-y-6">
+                    {/* <div className="grid-card flex flex-wrap lg:flex-row-2 gap-x-7 gap-y-6">
                         {fetchedRepos.map((repo) => (
                             <RepositoryCard key={repo.id} repo={repo} />
                         ))}
+                    </div> */}
+                    <div className="">
+                        <FileTree />
                     </div>
                 </div>
             </div>
