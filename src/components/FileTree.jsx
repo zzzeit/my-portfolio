@@ -90,7 +90,7 @@ function FileTree() {
 		try {
 			const response = await fetch(
 				`https://api.github.com/repos/${repoState.owner}/${repoState.repo}/contents${path ? `/${path}` : ''}`, 
-				requestOptions
+				requestOptions ? requestOptions : undefined
 			);
 			const data = await response.json();
 			return data;
