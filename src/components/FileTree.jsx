@@ -1,5 +1,5 @@
 import './FileTree.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function FileTreeItem({ file, fetchRepoContents, filePath, type, onFileClick, areChildren }) {
 	const [expanded, setExpanded] = useState(false);
@@ -63,59 +63,57 @@ function FileTreeList({ path, fetchRepoContents, onFileClick, areChildren }) {
     )
 }
 
-function FileTree() {
-    const [repoState, setRepoState] = useState({
-		owner: 'zzzeit',
-		repo: 'desolate-rift',
-		selectedFile: null,
-	});
-	const [retrieving, setRetreiving] = useState(false);
+function FileTree({ selectedRepo }) {
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [retrieving, setRetrieving] = useState(false);
 
-	const token = import.meta.env.VITE_GITHUB_TOKEN; 
-	console.log(`Using GitHub Token: ${token ? 'Provided' : 'Not Provided'}`);
-	const requestOptions = {
-		method: 'GET',
-		headers: {
-			'Accept': 'application/vnd.github+json',
-			'X-GitHub-Api-Version': '2022-11-28',
-			'Authorization': `bearer ${token}`
-		}
-    }
+    const token = import.meta.env.VITE_GITHUB_TOKEN;
+    
+    const fetchRepoContents = useCallback(async (path) => {
+        if (!selectedRepo) return;
+        console.log(`Fetching contents for: ${selectedRepo.owner.login}/${selectedRepo.name} at path: ${path}`);
+        setRetrieving(true);
+        try {
+			
+            const response = await fetch(
+                `https://api.github.com/repos/${selectedRepo.owner.login}/${selectedRepo.name}/contents${path ? `/${path}` : ''}`,
+                {
+                    headers: {
+                        'Accept': 'application/vnd.github+json',
+                        'X-GitHub-Api-Version': '2022-11-28',
+                        'Authorization': `Bearer ${token}` // Capitalized 'Bearer'
+                    }
+                }
+            );
+            return await response.json();
+        } catch (err) {
+            console.error("Fetch error:", err);
+        } finally {
+            setRetrieving(false);
+        }
+    }, [selectedRepo, token]);
 
-	// test
-	const fetchRepoContents = async (path) => {
-		setRetreiving(true);
-		try {
-			const response = await fetch(
-				`https://api.github.com/repos/${repoState.owner}/${repoState.repo}/contents${path ? `/${path}` : ''}`, 
-				requestOptions ? requestOptions : undefined
-			);
-			const data = await response.json();
-			return data;
-		} catch (err) {
-			console.error("Error fetching repository contents:", err);
-		} finally {
-			setRetreiving(false);
-		}
-	};
-
-	useEffect(() => {
-		console.log(`File Selected: ${repoState.selectedFile ? repoState.selectedFile.path : 'None'}`);
-	}, [repoState.selectedFile]);
-
+    useEffect(() => {
+        console.log(`File Selected: ${selectedFile ? selectedFile.path : 'None'}`);
+    }, [selectedFile]);
 
     return (
-		<div className="file-tree-container h-[500px] w-[250px]">
-			{!repoState.repo && (
-				<div className="file-tree-placeholder flex flex-col items-center justify-center h-full gap-3">
-					<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
-					<p className="mt-4 text-center text-xs text-gray-500">No repository selected.</p>
-				</div>
-			)}
-			<FileTreeList path='' fetchRepoContents={fetchRepoContents} onFileClick={(file) => setRepoState(prev => ({ ...prev, selectedFile: file }))} areChildren={false} />
-		</div>
-        
-    )
+        <div className="file-tree-container h-[500px] w-[250px]">
+            {!selectedRepo && (
+                <div className="file-tree-placeholder flex flex-col items-center justify-center h-full gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
+                    <p className="mt-4 text-center text-xs text-gray-500">No repository selected.</p>
+                </div>
+            )}
+            
+            <FileTreeList 
+                path='' 
+                fetchRepoContents={fetchRepoContents} 
+                onFileClick={(file) => setSelectedFile(file)} 
+                areChildren={false} 
+            />
+        </div>
+    );
 }
 
 export default FileTree;

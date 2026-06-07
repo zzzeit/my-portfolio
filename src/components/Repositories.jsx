@@ -3,10 +3,10 @@ import './Repositories.css'
 import { useEffect, useState } from "react";
 import FileTree from "./FileTree";
 
-function RepositoryCard({ repo }) {
+function RepositoryCard({ repo, onClick }) {
 
     return (
-        <div className="card-repository">
+        <div className="card-repository" onClick={() => onClick()}>
             <h3>{repo.name}</h3>
             <p>{repo.description}</p>
             <div style={{ width: '100%', height: '1px', backgroundColor: '#474747', margin: '16px 0' }} />
@@ -22,6 +22,7 @@ function RepositoryCard({ repo }) {
 function Repositories() {
 
     const [fetchedRepos, setFetchedRepos] = useState([]);
+    const [selectedRepo, setSelectedRepo] = useState(null);
 
     const fetchGitHubRepos = async () => {
         try {
@@ -45,13 +46,17 @@ function Repositories() {
                     <h1 id="repositoriesTitle">My Repositories</h1>
                     <div className="decorator-divider" />
                     <h3 className="mb-7">These are the repositories for both real/mock projects I've created:</h3>
-                    {/* <div className="grid-card flex flex-wrap lg:flex-row-2 gap-x-7 gap-y-6">
-                        {fetchedRepos.map((repo) => (
-                            <RepositoryCard key={repo.id} repo={repo} />
-                        ))}
-                    </div> */}
-                    <div className="">
-                        <FileTree />
+                    
+                    <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="grid-card flex flex-wrap lg:flex-row-2 gap-x-7 gap-y-6">
+                            {fetchedRepos.map((repo) => (
+                                <RepositoryCard key={repo.id} repo={repo} onClick={() => {
+                                    setSelectedRepo(repo);
+                                    console.log(`Selected Repository: ${repo.name}`);
+                                }} />
+                            ))}
+                        </div>
+                        <FileTree selectedRepo={selectedRepo} />
                     </div>
                 </div>
             </div>
