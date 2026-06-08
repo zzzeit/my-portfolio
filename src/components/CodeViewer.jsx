@@ -54,23 +54,19 @@ function CodeViewer({ file }) {
                 const detectedLanguage = detectLanguage(file.name);
                 setLanguage(detectedLanguage);
             }
-        }).then(() => {
-            if (codeContent.length > 5000) {
-                console.warn(`Code content for "${file.name}" is too large to display (${codeContent.length} characters).`);
-                setTooLarge(true);
-            } else {
-                setTooLarge(false);
-            }
         });
     }, [file]);
 
     const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
 
     return (
-        <div className="code-viewer relative w-full h-full">
+        <div className="code-viewer relative w-full h-full max-w-[800px]">
             {tooLarge && (
-                <div className="overlay">
+                <div className="overlay flex flex-col">
                     <p>⚠ Code content is too large to display ⚠</p>
+                    <button className="view-raw-button" onClick={() => window.open(file.html_url, '_blank')}>
+                        View Raw
+                    </button>
                 </div>
             )}
 
