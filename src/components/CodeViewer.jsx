@@ -94,7 +94,7 @@ function CodeViewer({ file }) {
                     display: 'block',
                 }}
             >
-                {rawCodeText}
+                {rawCodeText ? rawCodeText : ' '}
             </SyntaxHighlighter>
         </div>
     );
