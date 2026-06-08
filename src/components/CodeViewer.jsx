@@ -32,9 +32,9 @@ function CodeViewer({ file }) {
     }, [isDark]);
 
     const fetchCodeContent = async () => {
-        setIsLoading(true);
         if (file && file.download_url) {
             try {
+                setIsLoading(true);
                 const response = await fetch(file.download_url);
                 const text = await response.text();
                 setCodeContent(text);
@@ -42,6 +42,8 @@ function CodeViewer({ file }) {
                 return text;
             } catch (error) {
                 console.error("Error fetching code content:", error);
+                setIsLoading(false);
+            } finally {
                 setIsLoading(false);
             }
         }
@@ -68,6 +70,10 @@ function CodeViewer({ file }) {
 
     return (
         <div className="code-viewer relative w-full h-full max-w-[800px]">
+            <div className="code-header absolute flex justify-between w-full px-3">
+                <span className="file-name text-sm font-medium">{file ? file.name : 'Select a file to view its content'}</span>
+                <span className="language-label text-xs font-light">{language.toUpperCase()}</span>
+            </div>
             {tooLarge && (
                 <div className="overlay flex flex-col">
                     <p>⚠ Code content is too large to display ⚠</p>

@@ -50,3 +50,17 @@
 .view-raw-button:hover {
     background-color: var(--ui-border);
 }
+
+.code-header {
+    border-radius: 4px 4px 0 0;
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+}
+
+.file-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: var(--body-font-premium);
+    text-align: left;
+    white-space: nowrap;
+}
