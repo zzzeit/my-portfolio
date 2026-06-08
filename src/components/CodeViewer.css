@@ -3,6 +3,10 @@
 }
 
 .code-viewer code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: var(--body-font-premium);  
+
     display: block;
     text-align: left;
     white-space: pre;
@@ -10,4 +14,11 @@
     padding: 16px;
     border-radius: 4px;
     background-color: var(--code-bg);
+    padding: 0px;
+}
+
+.code-viewer .code-content {
+    padding: 20px 10px 20px 10px !important;
+    scrollbar-width: thin;
+  
 }
