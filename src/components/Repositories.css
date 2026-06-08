@@ -1,20 +1,18 @@
 .my-repositories {
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(140px);
     width: 100%;
     z-index: 1;
+    backdrop-filter: blur(140px);
 }
 
 .bordered-container {
-    backdrop-filter: blur(140px);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0px;
-
+    backdrop-filter: blur(140px);
 }
 
 .search-container {
@@ -22,54 +20,47 @@
     border-radius: 14px;
 }
 
-.search-container input {
+.search-bar {
     width: 100%;
     padding: 8px 12px;
+    font-size: 16px;
+    color: var(--body-font-premium);
+    background: transparent;
     border: none;
     border-radius: 14px;
-    background: transparent;
-    color: var(--body-font-premium);
-    font-size: 16px;
 }
 
-
-
 .grid-card {
-    /* border: 1px dashed #474747; */
-
-    /* max-width: 300px; */
-    overflow-y: scroll;
-    scrollbar-width: none;
     margin-top: 20px;
     justify-content: start;
-    /* padding: 16px; */
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .card-repository {
-    max-width: 100%;
     display: flex;
     flex-direction: column;
+    width: 550px;
+    max-width: 100%;
+    max-height: 180px;
+    padding: 16px 16px 3px 16px;
     font-size: 18px;
+    text-align: left;
     color: var(--body-font-premium);
     background: var(--ui-bg-gradient);
-    width: 550px;
-    max-height: 180px;
-    border-radius: 18px;
     border: 1px solid var(--ui-border);
-    padding: 16px 16px 3px 16px;
-
-    text-align: left;
+    border-radius: 18px;
 }
 
 .card-repository:hover {
-    box-shadow: var(--shadow);
     cursor: pointer;
+    box-shadow: var(--shadow);
 }
 
 .repo-stats {
     display: flex;
-    font-size: 13px;
     gap: 16px;
+    font-size: 13px;
 }
 
 .repo-upd {
@@ -80,7 +71,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--title-body-premium);
-    text-decoration: none;
     font-weight: 500;
+    text-decoration: none;
+    color: var(--body-font-premium);
 }
