@@ -41,11 +41,12 @@ function CodeViewer({ file }) {
 
     useEffect(() => {
         console.log("File changed in CodeViewer:", file);
-        fetchCodeContent();
-        if (file && file.name) {
-            const detectedLanguage = detectLanguage(file.name);
-            setLanguage(detectedLanguage);
-        }
+        fetchCodeContent().then(() => {
+            if (file && file.name) {
+                const detectedLanguage = detectLanguage(file.name);
+                setLanguage(detectedLanguage);
+            }
+        });
     }, [file]);
 
     const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
