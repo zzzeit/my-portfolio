@@ -15,8 +15,10 @@
 
   /* My Global Variables */
   --ui-bg: #f9f9fb;
-  --ui-bg-gradient: linear-gradient(280deg, #ffb4b4, #dab3ff, #b4e3ff);
+  --ui-bg-gradient: linear-gradient(305deg, #fdcfcf, #ead3ff, #d2efff);
   --ui-border: #e2e8f0;
+  --title-font-premium: #0f172a;
+  --body-font-premium: #334155;
 
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -54,8 +56,10 @@
 
   /* My Global Variables */
   --ui-bg: #292929;
-  --ui-bg-gradient: linear-gradient(270deg, #2c2c2c 0%, #181818 100%);
+  --ui-bg-gradient: linear-gradient(45deg, #2c2c2c 0%, #181818 100%);
   --ui-border: #3a3a3a;
+  --title-font-premium: #d8d8d8;
+  --body-font-premium: #afafaf;
 }
 
 :root.dark #social .button-icon {

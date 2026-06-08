@@ -15,15 +15,19 @@
 }
 
 .project-definitions {
+    font-family: 'Plus Jakarta Sans';
     background: var(--ui-bg-gradient);
     border: 1px solid var(--ui-border);
     border-radius: 10px;
     box-shadow: var(--shadow);
+    color: var(--body-font-premium);
 }
 
 .project-definitions h1 {
+    font-family: 'Space Grotesk';
     display: inline-block;
     line-height: 1;
+    color: var(--title-font-premium);
 }
 
 .my-swiper {

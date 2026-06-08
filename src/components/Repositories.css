@@ -7,7 +7,6 @@
 }
 
 .bordered-container {
-    height: 100%;
     padding: 16px;
     backdrop-filter: blur(140px);
 
@@ -16,34 +15,56 @@
     justify-content: center;
     align-items: center;
     gap: 0px;
+
 }
 
-.grid-card {
-    border: 1px dashed #474747;
+.search-container {
+    border: 1px solid var(--ui-border);
+    border-radius: 14px;
+}
 
-    max-width: 680px;
-    max-height: 580px;
+.search-container input {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--body-font-premium);
+    font-size: 16px;
+}
+
+
+
+.grid-card {
+    /* border: 1px dashed #474747; */
+
+    max-width: 380px;
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 20px;
     justify-content: center;
-    padding: 16px;
+    /* padding: 16px; */
 }
 
 .card-repository {
-    max-width: 300px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 18px;
-    color: #ffffff;
-    background: #2C2C2C;
+    color: var(--body-font-premium);
+    background: var(--ui-bg-gradient);
     width: 550px;
     max-height: 180px;
     border-radius: 18px;
-    border: 1px solid #3f3f3f;
-    padding: 16px;
+    border: 1px solid var(--ui-border);
+    padding: 16px 16px 3px 16px;
 
     text-align: left;
+}
+
+.card-repository:hover {
+    box-shadow: var(--shadow);
+    cursor: pointer;
 }
 
 .repo-stats {
@@ -60,7 +81,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #ffffff;
+    color: var(--title-body-premium);
     text-decoration: none;
     font-weight: 500;
 }

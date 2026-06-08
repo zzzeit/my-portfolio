@@ -1,5 +1,7 @@
 import './FileTree.css';
 import { useEffect, useState, useCallback } from "react";
+import Lottie from "lottie-react";
+import LoadingAnim from "../assets/loadanim.json";
 
 function FileTreeItem({ file, fetchRepoContents, filePath, type, onFileClick, areChildren }) {
 	const [expanded, setExpanded] = useState(false);
@@ -64,6 +66,7 @@ function FileTreeList({ path, fetchRepoContents, onFileClick, areChildren }) {
 }
 
 function FileTree({ selectedRepo }) {
+    const LottieComponent = Lottie.default || Lottie;
     const [selectedFile, setSelectedFile] = useState(null);
     const [retrieving, setRetrieving] = useState(false);
 
@@ -77,13 +80,13 @@ function FileTree({ selectedRepo }) {
 			
             const response = await fetch(
                 `https://api.github.com/repos/${selectedRepo.owner.login}/${selectedRepo.name}/contents${path ? `/${path}` : ''}`,
-                {
+                token ? {
                     headers: {
                         'Accept': 'application/vnd.github+json',
                         'X-GitHub-Api-Version': '2022-11-28',
-                        'Authorization': `Bearer ${token}` // Capitalized 'Bearer'
+                        'Authorization': `Bearer ${token}`
                     }
-                }
+                } : undefined
             );
             return await response.json();
         } catch (err) {
@@ -98,21 +101,35 @@ function FileTree({ selectedRepo }) {
     }, [selectedFile]);
 
     return (
-        <div className="file-tree-container h-[500px] w-[250px]">
-            {!selectedRepo && (
-                <div className="file-tree-placeholder flex flex-col items-center justify-center h-full gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
-                    <p className="mt-4 text-center text-xs text-gray-500">No repository selected.</p>
-                </div>
-            )}
+        <div className="relative">
             
-            <FileTreeList 
-                path='' 
-                fetchRepoContents={fetchRepoContents} 
-                onFileClick={(file) => setSelectedFile(file)} 
-                areChildren={false} 
-            />
+            <div className="file-tree-container relative h-full max-h-full w-[250px]">
+                {retrieving && (
+                    <div className="loading-animation flex items-center justify-center h-full">
+                        <LottieComponent
+                            animationData={LoadingAnim}
+                            loop={true}
+                            autoplay={true}
+                            style={{ width: '100px', height: '100px', margin: '0 auto' }}
+                        />
+                    </div>
+                )}    
+                {!selectedRepo && (
+                    <div className="file-tree-placeholder flex flex-col items-center justify-center h-full gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
+                        <p className="mt-4 text-center text-xs text-gray-500">No repository selected.</p>
+                    </div>
+                )}
+                
+                <FileTreeList 
+                    path='' 
+                    fetchRepoContents={fetchRepoContents} 
+                    onFileClick={(file) => setSelectedFile(file)} 
+                    areChildren={false} 
+                />
+            </div>    
         </div>
+        
     );
 }
 
