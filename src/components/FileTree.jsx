@@ -101,17 +101,18 @@ function FileTree({ selectedRepo }) {
 
     return (
         <div className="relative">
-            <div className="relative h-full w-full min-w-[250px] max-h-[300px] file-tree-container min-[700px]:max-h-full">
-                {retrieving && (
-                    <div className="flex h-full items-center justify-center loading-animation">
-                        <LottieComponent
-                            animationData={LoadingAnim}
-                            loop={true}
-                            autoplay={true}
-                            style={{ width: '100px', height: '100px', margin: '0 auto' }}
-                        />
-                    </div>
-                )}    
+            {retrieving && (
+                <div className="flex h-full items-center justify-center loading-animation rounded-[4px]">
+                    <LottieComponent
+                        animationData={LoadingAnim}
+                        loop={true}
+                        autoplay={true}
+                        style={{ width: '100px', height: '100px', margin: '0 auto' }}
+                    />
+                </div>
+            )}    
+            <div className="h-full w-full min-w-[250px] max-h-[300px] file-tree-container min-[700px]:max-h-full">
+                
                 {!selectedRepo && (
                     <div className="flex h-full flex-col items-center justify-center gap-3 file-tree-placeholder">
                         <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24"><title xmlns="">mood-empty</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m6-2h.01M15 10h.01M9 15h6"/></svg>
