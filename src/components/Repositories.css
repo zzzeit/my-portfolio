@@ -38,11 +38,11 @@
 .grid-card {
     /* border: 1px dashed #474747; */
 
-    max-width: 380px;
+    max-width: 300px;
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 20px;
-    justify-content: center;
+    justify-content: start;
     /* padding: 16px; */
 }
 
