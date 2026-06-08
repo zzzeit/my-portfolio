@@ -1,4 +1,6 @@
 import './CodeViewer.css';
+import Lottie from "lottie-react";
+import LoadingAnim from "../assets/loadanim3.json";
 import detectLanguage from '../hooks/detectLanguage';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -9,6 +11,8 @@ function CodeViewer({ file }) {
     const [codeContent, setCodeContent] = useState('');
     const [language, setLanguage] = useState('text');
     const [tooLarge, setTooLarge] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const LottieComponent = Lottie.default || Lottie;
 
     useEffect(() => {
         const checkTheme = () => {
@@ -28,14 +32,17 @@ function CodeViewer({ file }) {
     }, [isDark]);
 
     const fetchCodeContent = async () => {
+        setIsLoading(true);
         if (file && file.download_url) {
             try {
                 const response = await fetch(file.download_url);
                 const text = await response.text();
                 setCodeContent(text);
+                setIsLoading(false);
                 return text;
             } catch (error) {
                 console.error("Error fetching code content:", error);
+                setIsLoading(false);
             }
         }
     };
@@ -67,6 +74,12 @@ function CodeViewer({ file }) {
                     <button className="view-raw-button" onClick={() => window.open(file.html_url, '_blank')}>
                         View Raw
                     </button>
+                </div>
+            )}
+
+            {isLoading && (
+                <div className="overlay flex flex-col">
+                    <LottieComponent animationData={LoadingAnim} style={{ width: '300px', height: '300px' }} loop={true} />
                 </div>
             )}
 
