@@ -8,7 +8,7 @@ function CodeViewer({ file }) {
     const [isDark, setIsDark] = useState(true);
     const [codeContent, setCodeContent] = useState('');
     const [language, setLanguage] = useState('text');
-
+    const [tooLarge, setTooLarge] = useState(false);
 
     useEffect(() => {
         const checkTheme = () => {
@@ -33,6 +33,7 @@ function CodeViewer({ file }) {
                 const response = await fetch(file.download_url);
                 const text = await response.text();
                 setCodeContent(text);
+                return text;
             } catch (error) {
                 console.error("Error fetching code content:", error);
             }
@@ -41,10 +42,24 @@ function CodeViewer({ file }) {
 
     useEffect(() => {
         console.log("File changed in CodeViewer:", file);
+        if (file && file.size > 10000) {
+            setTooLarge(true);
+            console.warn(`File "${file.name}" is too large to display (${file.size} bytes).`);
+            return;
+        }
+
+        setTooLarge(false);
         fetchCodeContent().then(() => {
             if (file && file.name) {
                 const detectedLanguage = detectLanguage(file.name);
                 setLanguage(detectedLanguage);
+            }
+        }).then(() => {
+            if (codeContent.length > 5000) {
+                console.warn(`Code content for "${file.name}" is too large to display (${codeContent.length} characters).`);
+                setTooLarge(true);
+            } else {
+                setTooLarge(false);
             }
         });
     }, [file]);
@@ -52,14 +67,19 @@ function CodeViewer({ file }) {
     const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
 
     return (
-        <div className="code-viewer w-full h-full">
+        <div className="code-viewer relative w-full h-full">
+            {tooLarge && (
+                <div className="overlay">
+                    <p>⚠ Code content is too large to display ⚠</p>
+                </div>
+            )}
+
             <SyntaxHighlighter 
                 className="code-content h-full w-full"
                 key={isDark ? "dark-box" : "light-box"}
                 language={language}
                 style={isDark ? oneDark : oneLight}
                 showLineNumbers={true}
-
                 customStyle={{
                     margin: 0,
                     display: 'block',
