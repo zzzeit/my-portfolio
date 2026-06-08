@@ -57,13 +57,13 @@ function Repositories() {
 
     return (
         <Section id="repositories">
-            <div className="my-repositories w-full h-[1200px] pt-4 pr-5 pb-4 pl-5 lg:h-[calc(100vh-73px)] lg:pr-20 lg:pl-20">
+            <div className="my-repositories w-full max-[825px]:h-[1100px] pt-4 pr-5 pb-4 pl-5 lg:h-[calc(100vh-73px)] lg:pr-20 lg:pl-20">
                 <div className="bordered-container w-full h-full">
                     <h1 id="repositoriesTitle">My Repositories</h1>
                     <div className="decorator-divider" />
                     <h3 className="mb-7">These are the repositories for both real/mock projects I've created:</h3>
                     
-                    <div className="flex w-full gap-5 lg:flex-row max-[700px]:flex-col min-[700px]:justify-center min-[700px]:max-h-[500px]">
+                    <div className="flex w-full h-full justify-center gap-5 lg:flex-row max-[825px]:flex-col min-[825px]:justify-center min-[825px]:max-h-[500px]">
 
                         <div className="repositories-list-container w-full lg:max-w-[300px]">
                             <div className="search-container relative w-full mb-5 lg:mb-0">
@@ -77,7 +77,7 @@ function Repositories() {
                                 />
                             </div>
 
-                            <div className="grid-card flex flex-col w-full h-[300px] gap-4 overflow-y-scroll scrollbar-none lg:flex-col min-[700px]:h-[calc(100%-62px)]">
+                            <div className="grid-card flex flex-col w-full h-[200px] gap-4 overflow-y-scroll scrollbar-none lg:flex-col min-[825px]:h-[calc(100%-62px)]">
                                 {Array.isArray(fetchedRepos.items) && fetchedRepos.items.map((repo) => (
                                     <RepositoryCard key={repo.id} repo={repo} onClick={() => {
                                         setSelectedRepo(repo);

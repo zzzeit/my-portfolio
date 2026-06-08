@@ -69,7 +69,7 @@ function CodeViewer({ file }) {
     const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
 
     return (
-        <div className="code-viewer relative w-full h-full max-w-[800px]">
+        <div className="code-viewer relative flex-1 md:min-w-[330px] h-full max-h-[100px] max-w-[800px] max-[825px]:max-h-[400px] min-[825px]:max-h-[500px] overflow-hidden rounded-[4px]">
             <div className="code-header absolute flex justify-between w-full px-3">
                 <span className="file-name text-sm font-medium">{file ? file.name : 'Select a file to view its content'}</span>
                 <span className="language-label text-xs font-light">{language.toUpperCase()}</span>

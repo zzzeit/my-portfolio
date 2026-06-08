@@ -110,7 +110,7 @@ function FileTree({ selectedRepo, selectedFile, setSelectedFile }) {
                     />
                 </div>
             )}    
-            <div className="h-full w-full min-w-[250px] max-h-[300px] file-tree-container min-[700px]:max-h-full">
+            <div className="h-full w-full min-w-[250px] max-h-[200px] file-tree-container min-[825px]:max-h-full">
                 
                 {!selectedRepo && (
                     <div className="flex h-full flex-col items-center justify-center gap-3 file-tree-placeholder">
