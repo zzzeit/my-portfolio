@@ -75,7 +75,7 @@ function FileTree({ selectedRepo }) {
         setRetrieving(true);
         try {
             if (!token) {
-                console.error("Cannot retrieve repository contents. GitHub token is not set. Please add it to your .env file.");
+                console.warn("GitHub token is not set, falling back to unauthenticated requests for repository contents. Please add it to your .env file.");
             }
             const response = await fetch(
                 `https://api.github.com/repos/${selectedRepo.owner.login}/${selectedRepo.name}/contents${path ? `/${path}` : ''}`,

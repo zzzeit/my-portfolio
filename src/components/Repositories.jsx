@@ -29,7 +29,7 @@ function Repositories() {
     const fetchGitHubRepos = async () => {
         try {
             if (!token) {
-                console.error("Cannot retrieve GitHub repositories. GitHub token is not set. Please add it to your .env file.");
+                console.warn("GitHub token is not set, falling back to unauthenticated requests for repository search. Please add it to your .env file.");
             }
             const response = await fetch(
                 `https://api.github.com/search/repositories?q=user:zzzeit+${searchTerm}&sort=updated&order=desc`,
