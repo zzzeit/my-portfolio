@@ -62,9 +62,8 @@ function FileTreeList({ path, fetchRepoContents, selectedRepo, onFileClick, areC
     )
 }
 
-function FileTree({ selectedRepo }) {
+function FileTree({ selectedRepo, selectedFile, setSelectedFile }) {
     const LottieComponent = Lottie.default || Lottie;
-    const [selectedFile, setSelectedFile] = useState(null);
     const [retrieving, setRetrieving] = useState(false);
 
     const token = import.meta.env.VITE_GITHUB_TOKEN;

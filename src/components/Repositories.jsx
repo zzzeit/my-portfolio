@@ -2,6 +2,7 @@ import Section from "./Section";
 import './Repositories.css'
 import { useEffect, useState } from "react";
 import FileTree from "./FileTree";
+import CodeViewer from "./CodeViewer";
 
 function RepositoryCard({ repo, onClick }) {
 
@@ -24,6 +25,7 @@ function Repositories() {
     const [fetchedRepos, setFetchedRepos] = useState([]);
     const [selectedRepo, setSelectedRepo] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const token = import.meta.env.VITE_GITHUB_TOKEN;
     const fetchGitHubRepos = async () => {
@@ -61,7 +63,7 @@ function Repositories() {
                     <div className="decorator-divider" />
                     <h3 className="mb-7">These are the repositories for both real/mock projects I've created:</h3>
                     
-                    <div className="flex w-full gap-10 lg:flex-row max-[700px]:flex-col min-[700px]:justify-center min-[700px]:max-h-[500px]">
+                    <div className="flex w-full gap-5 lg:flex-row max-[700px]:flex-col min-[700px]:justify-center min-[700px]:max-h-[500px]">
 
                         <div className="repositories-list-container w-full lg:max-w-[300px]">
                             <div className="search-container relative w-full mb-5 lg:mb-0">
@@ -85,7 +87,8 @@ function Repositories() {
                             </div>    
                         </div>
                         
-                        <FileTree selectedRepo={selectedRepo} />
+                        <FileTree selectedRepo={selectedRepo} selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
+                        <CodeViewer file={selectedFile} />
                     </div>
                 </div>
             </div>

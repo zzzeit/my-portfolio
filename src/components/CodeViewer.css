@@ -1,0 +1,13 @@
+.code-viewer {
+
+}
+
+.code-viewer code {
+    display: block;
+    text-align: left;
+    white-space: pre;
+    overflow-x: auto;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: var(--code-bg);
+}

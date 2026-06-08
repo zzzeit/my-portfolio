@@ -1,0 +1,67 @@
+import './CodeViewer.css';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useEffect, useState } from 'react';
+
+function CodeViewer({ file }) {
+    const [isDark, setIsDark] = useState(true);
+    const [codeContent, setCodeContent] = useState('');
+
+    useEffect(() => {
+        const checkTheme = () => {
+            setIsDark(document.documentElement.classList.contains('dark'));
+        };
+        checkTheme();
+
+        // Create an observer to watch for theme changes automatically
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        console.log("Theme Switched");
+    }, [isDark]);
+
+    const fetchCodeContent = async () => {
+        if (file && file.download_url) {
+            try {
+                const response = await fetch(file.download_url);
+                const text = await response.text();
+                setCodeContent(text);
+            } catch (error) {
+                console.error("Error fetching code content:", error);
+            }
+        }
+    };
+
+    useEffect(() => {
+        console.log("File changed in CodeViewer:", file);
+        fetchCodeContent();
+    }, [file]);
+
+    const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
+
+    return (
+        <div className="code-viewer w-full h-full">
+            <SyntaxHighlighter 
+                className="code-content h-full w-full"
+                key={isDark ? "dark-box" : "light-box"}
+                language="java" 
+                style={isDark ? oneDark : oneLight}
+                showLineNumbers={true}
+
+                customStyle={{
+                    margin: 0,
+                    padding: '4px',
+                    display: 'block',
+                }}
+            >
+                {rawCodeText}
+            </SyntaxHighlighter>
+        </div>
+    );
+}
+
+export default CodeViewer;
