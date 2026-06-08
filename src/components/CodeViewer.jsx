@@ -1,4 +1,5 @@
 import './CodeViewer.css';
+import detectLanguage from '../hooks/detectLanguage';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useEffect, useState } from 'react';
@@ -6,6 +7,8 @@ import { useEffect, useState } from 'react';
 function CodeViewer({ file }) {
     const [isDark, setIsDark] = useState(true);
     const [codeContent, setCodeContent] = useState('');
+    const [language, setLanguage] = useState('text');
+
 
     useEffect(() => {
         const checkTheme = () => {
@@ -39,6 +42,10 @@ function CodeViewer({ file }) {
     useEffect(() => {
         console.log("File changed in CodeViewer:", file);
         fetchCodeContent();
+        if (file && file.name) {
+            const detectedLanguage = detectLanguage(file.name);
+            setLanguage(detectedLanguage);
+        }
     }, [file]);
 
     const rawCodeText = typeof codeContent === 'string' ? codeContent : JSON.stringify(codeContent, null, 2);
@@ -48,13 +55,12 @@ function CodeViewer({ file }) {
             <SyntaxHighlighter 
                 className="code-content h-full w-full"
                 key={isDark ? "dark-box" : "light-box"}
-                language="java" 
+                language={language}
                 style={isDark ? oneDark : oneLight}
                 showLineNumbers={true}
 
                 customStyle={{
                     margin: 0,
-                    padding: '4px',
                     display: 'block',
                 }}
             >
