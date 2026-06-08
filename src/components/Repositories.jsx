@@ -6,7 +6,7 @@ import FileTree from "./FileTree";
 function RepositoryCard({ repo, onClick }) {
 
     return (
-        <div className="card-repository w-full h-fit lg:w-fit" onClick={() => onClick()}>
+        <div className="card-repository w-full h-fit" onClick={() => onClick()}>
             <h3>{repo.name}</h3>
             <p>{repo.description}</p>
             <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--ui-border)', margin: '16px 0px 3px 0px' }} />
