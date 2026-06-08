@@ -36,7 +36,7 @@ function FileTreeItem({ file, fetchRepoContents, filePath, type, onFileClick, ar
     )
 }
 
-function FileTreeList({ path, fetchRepoContents, onFileClick, areChildren }) {
+function FileTreeList({ path, fetchRepoContents, selectedRepo, onFileClick, areChildren }) {
     const [files, setFiles] = useState([]);
     const loadFiles = async () => {
         const data = await fetchRepoContents(path);
@@ -44,18 +44,18 @@ function FileTreeList({ path, fetchRepoContents, onFileClick, areChildren }) {
     };
     useEffect(() => {
         loadFiles();
-    }, [path, fetchRepoContents]);
+    }, [selectedRepo, path]);
 
     return (
         <>
             {Array.isArray(files) && files.map((file) => (
                 file.type === 'dir' ? (
-                    <FileTreeItem key={file.sha} file={file} fetchRepoContents={fetchRepoContents} filePath={path} type={file.type} onFileClick={onFileClick} areChildren={areChildren} />
+                    <FileTreeItem key={file.path} file={file} fetchRepoContents={fetchRepoContents} filePath={path} type={file.type} onFileClick={onFileClick} areChildren={areChildren} />
                 ) : null
             ))}
             {Array.isArray(files) && files.map((file) => (
                 file.type === 'file' ? (
-                    <FileTreeItem key={file.sha} file={file} fetchRepoContents={fetchRepoContents} filePath={path} type={file.type} onFileClick={onFileClick} areChildren={areChildren} />
+                    <FileTreeItem key={file.path} file={file} fetchRepoContents={fetchRepoContents} filePath={path} type={file.type} onFileClick={onFileClick} areChildren={areChildren} />
                 ) : null
             ))}
         </>
@@ -123,6 +123,7 @@ function FileTree({ selectedRepo }) {
                 <FileTreeList 
                     path='' 
                     fetchRepoContents={fetchRepoContents} 
+                    selectedRepo={selectedRepo}
                     onFileClick={(file) => setSelectedFile(file)} 
                     areChildren={false} 
                 />
