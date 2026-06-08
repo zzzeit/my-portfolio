@@ -7,7 +7,6 @@
 }
 
 .bordered-container {
-    padding: 16px;
     backdrop-filter: blur(140px);
 
     display: flex;
@@ -38,7 +37,7 @@
 .grid-card {
     /* border: 1px dashed #474747; */
 
-    max-width: 300px;
+    /* max-width: 300px; */
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 20px;

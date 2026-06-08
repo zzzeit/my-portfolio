@@ -105,7 +105,7 @@ function FileTree({ selectedRepo }) {
     return (
         <div className="relative">
             
-            <div className="file-tree-container relative h-full max-h-full min-w-[250px] w-full">
+            <div className="file-tree-container relative h-full max-h-[300px] min-[700px]:max-h-full min-w-[250px] w-full">
                 {retrieving && (
                     <div className="loading-animation flex items-center justify-center h-full">
                         <LottieComponent
