@@ -14,11 +14,13 @@
 }
 
 .home-details h1 {
+    font-family: 'Neogen_Black', system-ui, 'Segoe UI', Roboto, sans-serif;
     font-weight: 900;
     margin: 0;
 }
 
 .home-details h2 {
+    font-family: 'Dekatron_SemiBold', system-ui, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-h);
 }
 .gradient-text {
@@ -29,6 +31,7 @@
 }
 
 .home-details p {
+    font-family: 'AppleGaramond-Light', system-ui, 'Segoe UI', Roboto, sans-serif;
     text-align: justify;
     font-size: 18px;
     line-height: 1.5;

@@ -16,7 +16,17 @@
 }
 
 .bordered-container h1 {
+    font-family: 'Agatho_BoldCAPS', system-ui, 'Segoe UI', Roboto, sans-serif;
+    color: var(--title-font-premium);
     margin-top: 0px;
+}
+
+.bordered-container h3 {
+    font-family: 'AppleGaramond-Light', system-ui, 'Segoe UI', Roboto, sans-serif;
+    color: var(--body-font-premium);
+    font-size: 1rem;
+    margin-top: 0px;
+    margin-bottom: 40px;
 }
 
 .search-container {
@@ -53,6 +63,12 @@
     background: var(--ui-bg-gradient);
     border: 1px solid var(--ui-border);
     border-radius: 18px;
+}
+
+.card-repository h3 {
+    font-family: 'Dekatron_SemiBold', system-ui, 'Segoe UI', Roboto, sans-serif;
+    color: var(--title-font-premium);
+    margin: 0 0 0px 0;
 }
 
 .card-repository:hover {

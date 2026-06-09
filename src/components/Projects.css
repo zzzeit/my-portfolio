@@ -11,7 +11,17 @@
 }
 
 .my-projects h1 {
+    color: var(--title-font-premium);
+    font-family: 'Agatho_BoldCAPS', system-ui, 'Segoe UI', Roboto, sans-serif;
     margin-top: 0;
+}
+
+.my-projects h3 {
+    color: var(--body-font-premium);
+    font-family: 'AppleGaramond-Light', system-ui, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 24px;
 }
 
 .project-definitions {
