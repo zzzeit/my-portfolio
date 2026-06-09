@@ -57,7 +57,7 @@ function Repositories() {
 
     return (
         <Section id="repositories">
-            <div className="my-repositories w-full h-[1100px] pt-4 pr-5 pb-4 pl-5 lg:h-[calc(100vh-73px)] ">
+            <div className="my-repositories w-full h-[1100px] min-h-[800px] pt-4 pr-5 pb-4 pl-5 lg:h-[calc(100vh-73px)] ">
                 <div className="bordered-container w-full h-full">
                     <h1 id="repositoriesTitle">My Repositories</h1>
                     <div className="decorator-divider" />

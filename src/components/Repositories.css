@@ -4,6 +4,7 @@
     width: 100%;
     z-index: 1;
     backdrop-filter: blur(140px);
+    background-color: #13141a2a;
 }
 
 .bordered-container {
@@ -12,7 +13,6 @@
     justify-content: center;
     align-items: center;
     gap: 0px;
-    backdrop-filter: blur(140px);
 }
 
 .bordered-container h1 {
