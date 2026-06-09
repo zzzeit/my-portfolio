@@ -5,6 +5,9 @@
     z-index: 1;
     backdrop-filter: blur(140px);
     background-color: #13141a2a;
+    background-image: url('../assets/bg.svg');
+    background-size: cover;
+    background-position: center;
 }
 
 .bordered-container {

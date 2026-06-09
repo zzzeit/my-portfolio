@@ -36,6 +36,32 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'The_Hootline';
+  src: url('./assets/fonts/hootrg__.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SSIS';
+  src: url('./assets/fonts/Terminal\ F4.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CyberSentience';
+  src: url('./assets/fonts/abduction2002.ttf') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 :root {

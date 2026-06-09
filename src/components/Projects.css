@@ -43,6 +43,8 @@
     margin: 0px;
     padding: 0px;
     aspect-ratio: 1 / 1;
+    --swiper-navigation-color: #dadada;
+    --swiper-pagination-color: #dadada;
 }
 
 .my-swiper img, video {
@@ -61,4 +63,16 @@
 
 .hide-cursor .Typewriter__cursor {
     display: none !important;
+}
+
+.hootline h1 {
+    font-family: 'The_Hootline';
+}
+
+.ssis h1 {
+    font-family: 'SSIS';
+    font-size: 52px;
+}
+.cyber h1 {
+    font-family: 'CyberSentience';
 }
