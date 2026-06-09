@@ -15,6 +15,10 @@
     backdrop-filter: blur(140px);
 }
 
+.bordered-container h1 {
+    margin-top: 0px;
+}
+
 .search-container {
     border: 1px solid var(--ui-border);
     border-radius: 14px;
