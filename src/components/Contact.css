@@ -10,13 +10,13 @@
 .my-contact input, textarea {
     padding: 12px;
     border-radius: 5px;
-    background-color: #1c1c1c;
-    color: #fff;
-    border: 1px solid #444;
+    background-color: var(--ui-bg);
+    color: var(--body-font-premium);
+    border: 1px dashed #444;
 }
 
 .my-contact label {
-    color: #fff;
+    color: var(--body-font-premium);
     font-weight: bold;
 }
 
@@ -32,7 +32,7 @@
     gap: 16px;
     width: 100%;
     max-width: 400px;
-    background-color: #2c2c2c;
+    background: var(--ui-bg-gradient);
     border-radius: 10px;
     padding: 24px;
     border: 1px solid #444;
@@ -46,7 +46,7 @@
 
 .button-submit {
     background-color: #4caf50;
-    color: white;
+    color: var(--body-font-premium);
     border: none;
     padding: 12px;
     border-radius: 5px;
