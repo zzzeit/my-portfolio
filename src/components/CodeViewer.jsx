@@ -2,9 +2,23 @@ import './CodeViewer.css';
 import Lottie from "lottie-react";
 import LoadingAnim from "../assets/loadanim3.json";
 import detectLanguage from '../hooks/detectLanguage';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useEffect, useState } from 'react';
+
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import java from 'react-syntax-highlighter/dist/esm/languages/prism/java';
+import cpp from 'react-syntax-highlighter/dist/esm/languages/prism/cpp';
+
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('css', css);
+SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('java', java);
+SyntaxHighlighter.registerLanguage('cpp', cpp);
 
 function CodeViewer({ file }) {
     const [isDark, setIsDark] = useState(true);
